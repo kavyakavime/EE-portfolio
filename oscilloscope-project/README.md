@@ -87,6 +87,14 @@ Real-time plots show:
 - Theoretical curve uses the 1st-order RC high-pass model with **f_c ≈ 159 Hz**
 - Measured gain points (blue) rise with frequency, but the measured “passband” gain plateaus around **~ −4 dB** (near 800–1000 Hz), rather than reaching 0 dB.
 
+### Bode Magnitude Comparison (Measured vs. Theoretical)
+
+The Bode magnitude plot compares the **measured gain** of the RC high-pass filter with the **theoretical first-order response** (dashed curve, \( f_c \approx 159 \,\text{Hz} \)). The measured data (blue points) shows strong low-frequency attenuation and increasing gain with frequency, consistent with expected high-pass behavior.
+
+While the overall shape and slope (~20 dB/decade) match theory, the measured response exhibits a **constant gain offset**, with the passband saturating near **−4 dB** instead of 0 dB. This offset is attributed to non-ideal DAC amplitude, ADC reference scaling, and measurement-chain loading effects.
+
+Using the measured passband as a reference, the **measured cutoff frequency** (passband −3 dB) occurs near **~400 Hz**. Despite the offset, the close agreement in response shape validates the filter operation and the software-defined measurement system.
+
 
 
 ## Error Analysis 
