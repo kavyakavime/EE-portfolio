@@ -87,16 +87,7 @@ Real-time plots show:
 - Theoretical curve uses the 1st-order RC high-pass model with **f_c ≈ 159 Hz**
 - Measured gain points (blue) rise with frequency, but the measured “passband” gain plateaus around **~ −4 dB** (near 800–1000 Hz), rather than reaching 0 dB.
 
-#### Measured cutoff frequency
-Because the measured passband is offset, cutoff was estimated relative to the measured passband:
-- **Measured passband gain (approx):** ~ −4 dB  
-- **Cutoff definition:** passband − 3 dB → target ≈ −7 dB  
-- **Measured cutoff (approx):** **~ 400 Hz** 
 
-### Frequency-Domain (FFT)
-FFT shows a dominant tone at the generated test frequency plus smaller spurs/harmonics, consistent with DAC quantization/stepping and sampling effects.
-
----
 
 ## Error Analysis 
 
