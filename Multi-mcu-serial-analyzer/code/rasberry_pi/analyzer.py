@@ -1,9 +1,9 @@
 # have the matplot dependency installed
 # run this command 'pip3 install pyserial matplotlib numpy'
-#!/usr/bin/env python3
 """
 Multi-MCU Serial Communication Analyzer
-Real-time packet analysis with Wireshark-like metrics
+Real-time packet analysis with Wireshark-like metrics for 
+embedded systems!
 """
 
 import serial
@@ -13,10 +13,9 @@ from matplotlib.animation import FuncAnimation
 from collections import deque
 import numpy as np
 
-# Configuration
-ESP32_PORT = '/dev/ttyUSB0'  # Change to your ESP32 port
+ESP32_PORT = '/dev/ttyUSB0' 
 BAUD_RATE = 115200
-WINDOW_SIZE = 50  # Number of packets to display
+WINDOW_SIZE = 50  # packets to display
 
 # Data storage
 packet_times = deque(maxlen=WINDOW_SIZE)
@@ -39,7 +38,7 @@ except Exception as e:
     print(f"Error connecting: {e}")
     exit(1)
 
-# Setup plots
+# Plot setup
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
 fig.suptitle('Multi-MCU Serial Communication Analyzer', fontsize=16, fontweight='bold')
 
@@ -49,7 +48,7 @@ def parse_packet(line):
         parts = line.strip().split('|')
         
         if parts[0] == "STATUS":
-            return None  # Ignore status messages
+            return None  # Ignoring status
         
         if len(parts) >= 6:
             return {
@@ -76,7 +75,7 @@ def calculate_metrics(packet):
     if last_seq != -1 and seq != last_seq + 1:
         lost = seq - last_seq - 1
         packets_lost += lost
-        print(f"⚠️  Packet loss detected! Missing: {lost} packets")
+        print(f" Packet loss detected! Missing: {lost} packets")
     
     last_seq = seq
     
@@ -150,7 +149,7 @@ def update_plots(frame):
     avg_jitter = np.mean(jitters) if len(jitters) > 0 else 0
     
     stats_text = f"""
-    📊 REAL-TIME STATISTICS
+    REAL-TIME STATISTICS
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Runtime:          {runtime:.1f}s
     Packets Received: {packets_received}
