@@ -69,7 +69,7 @@ Manual LED intensity control demonstrating analog-to-digital conversion and user
 - User-controlled intensity adjustment
 
 **Code:** `code/potentiometer_led_bar.ino`  
-**Photos:** `photos/` (low setting vs high setting)
+**Photos:** `photos/` (low setting vs slightly turned setting)
 
 ---
 
@@ -98,11 +98,14 @@ Motion detection system with dynamic LED response for security monitoring or int
 ---
 
 ## Common Circuit Architecture
-Ultrasonic Sensor (HC-SR04) → Arduino Nano → 7 LEDs + Buzzer
-      |                            |
-   [Trig/Echo]              [Distance Processing]
-                                   |
-                    ┌──────────────┴──────────────┐
-                    |                             |
-              LED Bar Graph                   Buzzer
-            (Proximity Display)           (Danger Alert)
+```
+[Input Sensor] → Arduino Nano → 7 LEDs (+ Integrate other Output)
+      |                |
+  [Analog Signal] [Processing]
+                       |
+        ┌──────────────┴──────────────┐
+        |                             |
+   LED Bar Graph              Optional Output
+  (Visual Display)          (Buzzer/Alert/etc)
+```
+Note: The input sensor can be any module that sends analog input to the arduino.
