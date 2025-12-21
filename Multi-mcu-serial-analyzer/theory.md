@@ -43,7 +43,7 @@ Where:
 - $\( R_1 = 2 \, k\Omega \)$
 - $\( R_2 = 1 \, k\Omega \)$
 
-$V_{out} = 5 \times \frac{1}{3} \approx 1.67 \, V$
+$V_{out} = 5 \times \frac{1}{3} \approx 1.67 \ V$
 
 ---
 
