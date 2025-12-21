@@ -98,9 +98,11 @@ Motion detection system with dynamic LED response for security monitoring or int
 ---
 
 ## Common Circuit Architecture
-
-## Contact
-
-**Email:** [your.email@example.com]  
-**LinkedIn:** [linkedin.com/in/yourprofile]  
-**GitHub:** [github.com/yourusername]
+Ultrasonic Sensor (HC-SR04) → Arduino Nano → 7 LEDs + Buzzer
+      |                            |
+   [Trig/Echo]              [Distance Processing]
+                                   |
+                    ┌──────────────┴──────────────┐
+                    |                             |
+              LED Bar Graph                   Buzzer
+            (Proximity Display)           (Danger Alert)
