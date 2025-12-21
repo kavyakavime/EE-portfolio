@@ -39,9 +39,9 @@ The output voltage of a resistor divider is calculated as:
 $V_{out} = V_{in} \times \frac{R_2}{R_1 + R_2}$
 
 Where:
-- \( V_{in} = 5 \, V \)
-- \( R_1 = 2 \, k\Omega \)
-- \( R_2 = 1 \, k\Omega \)
+- $\( V_{in} = 5 \, V \)$
+- $\( R_1 = 2 \, k\Omega \)$
+- $\( R_2 = 1 \, k\Omega \)$
 
 $V_{out} = 5 \times \frac{1}{3} \approx 1.67 \, V$
 
