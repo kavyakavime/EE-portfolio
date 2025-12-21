@@ -21,10 +21,10 @@ A passive resistor voltage divider was used to safely reduce the Arduino’s TX 
 
 ```
 Arduino TX ── 2 kΩ ──┬── ESP32 RX
-│
-1 kΩ
-│
-GND
+                     │
+                    1 kΩ
+                     │
+                    GND
 ```
 
 
