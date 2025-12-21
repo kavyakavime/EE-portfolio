@@ -16,3 +16,82 @@ Instead of Ethernet packets, this system analyzes **raw UART packets** moving ac
 
 ## 🧠 System Overview
 
+- **Arduino Nano**  
+  Generates structured binary packets at a fixed rate.
+
+- **ESP32**  
+  Acts as a transparent relay, timestamping packets on receive and transmit.
+
+- **Raspberry Pi**  
+  Receives packets, validates integrity, computes:
+  - Throughput
+  - Latency
+  - Jitter
+  - Packet loss  
+  and visualizes results in real time using Python.
+
+---
+
+## ⚙️ Hardware Design
+
+- UART communication at **115200 baud**
+- Safe 5V → 3.3V level shifting using a **resistor voltage divider**
+- Dedicated UART lines (no USB serial contention)
+- Common ground shared across all devices
+
+A full wiring photo and divider details are included in the `hardware/` directory.
+
+---
+
+## 📊 Results
+
+### Final Statistics (Longest Run)
+
+- **Total packets received:** 2144  
+- **Packets lost:** 0  
+- **Packet loss rate:** 0.00%  
+- **Average latency:** 26.100 ms  
+- **Average jitter:** ~0.007 ms  
+- **Sustained packet rate:** ~10 packets/sec  
+
+### Visualizations
+
+The analyzer produces:
+- Throughput vs time
+- ESP32 relay latency per packet
+- Jitter (latency variation)
+- Live runtime statistics panel
+
+Example outputs are included in the `results/` folder.
+
+---
+
+## 🔬 Why This Matters
+
+This project mirrors real-world tools and concepts used in:
+- Packet sniffing
+- Embedded protocol debugging
+- Performance analysis
+- Serial communication reliability testing
+
+It demonstrates how **low-level hardware decisions** (timing, voltage, buffering) directly affect system-level performance—something that high-level software often abstracts away.
+
+---
+
+## 🚀 Future Improvements
+
+- Higher packet rates
+- CRC instead of XOR checksum
+- Support for SPI / I²C comparison
+- Trigger-based capture
+- Packet drop injection for stress testing
+
+---
+
+## 🧑‍💻 Author
+
+Built by **[Your Name]**  
+Focus: Embedded Systems, Low-Level Communication, Instrumentation
+
+License: MIT
+
