@@ -83,13 +83,3 @@ It demonstrates how low-level hardware and timing decisions directly influence s
 
 ---
 
-## Future Improvements
-
-Planned extensions include:
-- Higher packet transmission rates
-- CRC-based error detection instead of XOR checksums
-- Support for SPI and I²C for protocol comparison
-- Trigger-based capture and filtering
-- Intentional packet drop injection for stress testing
-
----
