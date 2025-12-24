@@ -1,12 +1,7 @@
-// =====================================
-// Arduino Nano - Message Generator
-// Sends structured messages via UART
-// =====================================
-
-
+//Arduino nano sends random, but structured messages to ESP 32 #1
 unsigned long messageCount = 0;
 unsigned long lastSendTime = 0;
-const unsigned long SEND_INTERVAL = 2000; // 2 seconds
+const unsigned long SEND_INTERVAL = 2000; // every two seconds, send packet
 
 
 void setup() {
@@ -16,10 +11,10 @@ void setup() {
 
 
 void loop() {
- unsigned long currentTime = millis();
+  unsigned long currentTime = millis();
   if (currentTime - lastSendTime >= SEND_INTERVAL) {
-   // Generate message: COUNT|TIMESTAMP|DATA
-   String message = String(messageCount) + "|" +
+   // Generate message in this structure: COUNT|TIMESTAMP|DATA
+  String message = String(messageCount) + "|" +
                     String(currentTime) + "|" +
                     generateRandomData();
   
@@ -27,8 +22,8 @@ void loop() {
   
    messageCount++;
    lastSendTime = currentTime;
- }
-}
+ } //if
+} //loop
 
 
 String generateRandomData() {
@@ -38,4 +33,4 @@ String generateRandomData() {
    data += char(random(65, 91)); // A-Z
  }
  return data;
-}
+} //generateRandomData
