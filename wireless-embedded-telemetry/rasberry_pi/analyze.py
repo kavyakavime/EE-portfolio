@@ -1,14 +1,12 @@
 import serial
 import time
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #download matplot library
 from collections import deque
 
-# ---------------- CONFIG ----------------
 PORT = "/dev/ttyUSB0"
 BAUD = 115200
 WINDOW = 300
-# ----------------------------------------
 
 ser = serial.Serial(PORT, BAUD, timeout=1)
 
@@ -28,7 +26,7 @@ latest_src = "-"
 latest_data = "-"
 latest_latency = "-"
 
-# ---------------- PLOT SETUP ----------------
+# setup the plots
 plt.style.use("dark_background")
 fig = plt.figure(figsize=(12, 8))
 fig.suptitle("📡 Wireless Packet Telemetry Analyzer", fontsize=16)
@@ -49,7 +47,7 @@ ax_loss.set_ylabel("Lost packets")
 ax_jit.set_ylabel("Jitter (ms)")
 ax_jit.set_xlabel("Packets")
 
-# 🔥 TEXT PANEL FOR PACKET CONTENTS
+# to show packet content
 packet_text = fig.text(
     0.73, 0.28, "", fontsize=12,
     bbox=dict(facecolor="#111111", edgecolor="white")
@@ -59,9 +57,8 @@ plt.tight_layout(rect=[0, 0.05, 1, 0.95])
 plt.ion()
 plt.show()
 
-# ---------------- PARSER ----------------
+# parse packet
 def parse_line(line):
-    # PACKET|107|222000|TXAB|LATENCY:23|COUNT:107
     p = line.split("|")
     if len(p) < 6 or p[0] != "PACKET":
         raise ValueError
@@ -80,7 +77,7 @@ def parse_line(line):
 
     return seq, src_time, data, latency
 
-# ---------------- MAIN LOOP ----------------
+# main loop
 while True:
     try:
         line = ser.readline().decode(errors="ignore").strip()
@@ -133,7 +130,7 @@ while True:
             ax_loss.set_ylim(0, max(5, lost_packets * 1.3 + 5))
             ax_jit.set_ylim(0, max(5, np.std(latencies) * 4 + 5))
 
-            # 🔥 UPDATE PACKET CONTENT PANEL
+            # update packet content
             packet_text.set_text(
                 " Latest Packet \n"
                 "──────────────\n"
