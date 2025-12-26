@@ -1,4 +1,4 @@
-# ⚡ Electrical & Embedded Engineering Portfolio
+#  Electrical & Embedded Engineering Portfolio
 
 A collection of hands-on projects focused on **embedded systems, wireless communication, and hardware–software integration**.  
 These projects explore how data moves from physical sensors through microcontrollers, across wireless links, and into software systems for analysis and visualization.
