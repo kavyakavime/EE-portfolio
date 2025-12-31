@@ -22,4 +22,4 @@ Each project emphasizes **real-world engineering constraints** such as voltage c
 
 ---
 
-📌 *This portfolio highlights applied electrical engineering skills through complete, end-to-end systems rather than isolated code examples.*
+*This portfolio highlights applied electrical engineering skills through complete, end-to-end systems rather than isolated code examples.*
